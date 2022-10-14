@@ -1,0 +1,15 @@
+<h2>{{name}} Posts</h2>
+
+<a href="/dashboard/create/"><button id="create-post" class="button is-primary">Create New Post</button></a>
+
+{{if post.length}}
+
+    {{#each posts as |post|}}
+        {{>post-info post}}
+
+    {{/each}}
+{{else}}
+
+<h5 class="has-text-centered"> You do not currently have any posts</h5>
+
+{{/if}}
