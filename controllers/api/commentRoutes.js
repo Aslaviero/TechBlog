@@ -7,7 +7,7 @@ const withAuth = require('/utils/auth');
   router.get('/', async (req, res) => {
     try {
       const comment = await comment.findAll();
-      res.status(200).json(postData);
+      res.status(200).json(comment);
     } catch (err) {
       res.status(500).json(err);
     }
@@ -20,7 +20,7 @@ const withAuth = require('/utils/auth');
         req.body,
         {
           where: {
-            id: req.params.id,
+            user_id: req.params.user_id,
           },
         });
       res.status(200).json(comment);
@@ -29,21 +29,6 @@ const withAuth = require('/utils/auth');
     };
   });
   
-//TODO: Edit comments
-// router.put('/:id', async (req, res) => {
-//   try {
-//     const comment = await Comment.update(
-//       req.body,
-//       {
-//         where: {
-//           id: req.params.id,
-//         },
-//       });
-//     res.status(200).json(comment);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   };
-// });
 
   //delete comment
   router.delete('/:id', withAuth, async (req, res) => {
