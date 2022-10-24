@@ -1,13 +1,21 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
-  <p>
-    <button class="btn btn-primary">Fund this Project!</button>
-  </p>
-</div>
+<section class="posts">
+  {{>post-info post}}
+
+  {{> comment post.comments}}
+
+  {{#if logged_in}}
+  <form>
+  <div class="form-group">
+    <label>comment</label>
+    <textarea class="form-control" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn text-primary">Post Comment</button>
+</form>
+  {{/if}}
+
+</section>
+
+{{#if logged_in}}
+{{!-- TODO: Created comment.js file --}}
+{{!-- <script src="/public/js/comment.js"></script> --}}
+{{/if}}

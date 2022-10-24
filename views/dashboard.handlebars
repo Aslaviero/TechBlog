@@ -1,8 +1,8 @@
-<h2>{{name}} Posts</h2>
+<h2>Your Posts</h2>
 
-<a href="/dashboard/create/"><button id="create-post" class="button is-primary">Create New Post</button></a>
+<a href="/dashboard/create/"><button type="submit" id="create-post" class="button is-primary">Create New Post</button></a>
 
-{{if post.length}}
+{{#if post.length}}
 
     {{#each posts as |post|}}
         {{>post-info post}}
