@@ -5,12 +5,14 @@
 
   {{#if logged_in}}
   <form>
-  <div class="form-group">
-    <label>comment</label>
-    <textarea class="form-control" rows="3"></textarea>
-  </div>
-  <button type="submit" class="btn text-primary">Post Comment</button>
-</form>
+        <div class="form-group">
+          <label>Leave comment</label>
+          <textarea class="form-control" rows="3"></textarea>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+        </div>
+      </form>
   {{/if}}
 
 </section>
