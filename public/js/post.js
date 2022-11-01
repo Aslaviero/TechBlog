@@ -6,7 +6,7 @@ const postFormHandler = async (event) => {
 
     if (title && post_text) {
 
-        const response = await fetch('/api/posts', {
+        const response = await fetch('/dashboard/create', {
             method: 'POST',
             body: JSON.stringify({ title: title, content: post_text }),
             headers: { 'Content-Type': 'application/json' }

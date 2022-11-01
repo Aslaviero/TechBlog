@@ -14,14 +14,12 @@ const withAuth = require('../../utils/auth');
   });
   
   //create new comment
-  router.post('/', async (req, res) => {
+  router.post('/new', async (req, res) => {
     try {
-      const Comment = await Comment.create(
-        req.body,
-        {
-          where: {
+      const Comment = await Comment.create({
+        ...req.body,
             user_id: req.params.user_id,
-          },
+          
         });
       res.status(200).json(Comment);
     } catch (err) {

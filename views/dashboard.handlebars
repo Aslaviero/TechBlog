@@ -11,19 +11,20 @@
 <div class="card mx-3">
   <h5 class="card-header text-uppercase">Created by: {{post.user.username}} on {{format_date post.date_created}}</h5>
   <div class="card-body">
-    <h5 class="card-title text-uppercase text-underline">{{post.title}}</h5>
-    <p class="card-text">{{post.content}}</p>
+    <h5 class="card-title text-uppercase text-underline post-title">{{post.title}}</h5>
+    <p class="card-text post-content">{{post.content}}</p>
     <div class="mx-auto" style="width: 100px;">
-    <a href="/dashboard/editpost/" class="btn btn-primary  d-grid mx-auto">Edit</a>
+    <a href="/dashboard/editpost/{{post.id}}" class="btn btn-primary  d-grid mx-auto">Edit</a>
   </div>
 </div>
 </div>
 
 {{/each}}
+{{/if}}
 
 {{#else}}
 <h5 class="has-text-centered"> You do not currently have any posts</h5>
 {{/else}}
-{{/if}}
+
 
 

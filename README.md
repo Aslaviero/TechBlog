@@ -1,3 +1,16 @@
+# MVC Tech Blog
+
+## Table of Contents
+- [MVC Tech Blog](#mvc-tech-blog)
+  - [Table of Contents](#table-of-contents)
+  - [Model-View-Controller (MVC) Challenge: Tech Blog](#model-view-controller-mvc-challenge-tech-blog)
+  - [User Story](#user-story)
+  - [Description](#description)
+  - [Features](#features)
+  - [screenshot](#screenshot)
+  - [Link to deployed heroku application:](#link-to-deployed-heroku-application)
+
+- [Heroku](#link-to-deployed-heroku-application)
 ## Model-View-Controller (MVC) Challenge: Tech Blog
 Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
 
@@ -42,4 +55,22 @@ THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
 
+## Description
+This is a Techblog built with nodejs and expressjs for restful api's, handlebars for the template engine, and MYSQL2 and Sequelize for the database. 
 
+## Features
+ * Javascript
+ * Node.js
+ * npm
+ * Express.js
+    * handlebars
+    * session
+ * MYSQL2
+ * Sequelize
+ * dotenv
+ * bcrypt
+ * boot-strap
+
+## screenshot 
+
+## Link to deployed heroku application:

@@ -96,11 +96,25 @@ router.get('/dashboard/create', withAuth, async (req, res) => {
 });
 
 //Get route to edit post page
-router.get('/dashboard/editpost', withAuth, async (req, res) => {
+router.get('/dashboard/editpost/:id', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
    
     res.render('editpost', {
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+//Get route to edit post page
+router.get('/comment/:id', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+   
+    res.render('comment', {
       logged_in: req.session.logged_in
     });
   } catch (err) {

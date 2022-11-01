@@ -2,16 +2,25 @@
 {{#each posts as |post| }}
 
 <div class="card mx-3">
-  <h5 class="card-header text-uppercase">Created by: {{post.user.username}} on {{format_date post.date_created}}</h5>
+ <a href="/comment/{{post.id}}"> <h5  class="card-header text-uppercase">Created by: {{post.user.username}} on {{format_date post.date_created}}</h5></a>
   <div class="card-body">
-    <h5 class="card-title text-uppercase text-underline">{{post.title}}</h5>
-    <p class="card-text">{{post.content}}</p>
+    <h5 class="card-title text-uppercase text-underline post-title">{{post.title}}</h5>
+    <p class="card-text post-content">{{post.content}}</p>
     <div class="mx-auto" style="width: 200px;">
-    <a href="#" class="btn btn-primary  justify-content-center">Comment</a>
   </div>
 </div>
 </div>
 
 {{/each}}
 
-
+{{#each comments as |comment| }}
+<div class="card mx-3">
+  <h5  class="card-header text-uppercase">Created by: {{post.user.username}} on {{format_date post.date_created}}</h5>
+  <div class="card-body">
+    <h5 class="card-title text-uppercase text-underline post-title">{{post.title}}</h5>
+    <p class="card-text post-content">{{comment.comment_text}}</p>
+    <div class="mx-auto" style="width: 200px;">
+  </div>
+</div>
+</div>
+{{/each}}
