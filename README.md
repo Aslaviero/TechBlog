@@ -9,6 +9,7 @@
   - [Features](#features)
   - [screenshot](#screenshot)
   - [Link to deployed heroku application:](#link-to-deployed-heroku-application)
+  - [Future development ideas](#future-development-ideas)
 
 - [Heroku](#link-to-deployed-heroku-application)
 ## Model-View-Controller (MVC) Challenge: Tech Blog
@@ -74,3 +75,8 @@ This is a Techblog built with nodejs and expressjs for restful api's, handlebars
 ## screenshot 
 
 ## Link to deployed heroku application:
+
+## Future development ideas
+- post comments
+- edit posts
+- delete posts
