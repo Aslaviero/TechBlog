@@ -37,7 +37,7 @@ router.get('/:id', async (req, res) => {
 //Update a post
 router.put('/:id', withAuth, async (req, res) => {
   try {
-    const post = await this.post.update(
+    const post = await Post.update(
       req.body,
       {
         where: {
@@ -61,7 +61,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No post found with this id!' });
+      res.status(404).json({ message: 'There is no post with this id!' });
       return;
     }
 

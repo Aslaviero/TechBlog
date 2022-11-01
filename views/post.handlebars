@@ -1,22 +1,18 @@
-<section class="posts">
-  {{>post-info post}}
-
-  {{> comment post.comments}}
-
-  {{#if logged_in}}
-  <form>
-        <div class="form-group">
-          <label>Leave comment</label>
-          <textarea class="form-control" rows="3"></textarea>
+<section>
+ 
+  <form class="create-post">
+        <div class="form-group d-grid gap-2 col-6 mx-auto">
+          <label class ="d-grid gap-1 col-6 mx-auto">Write your Blog Post!</label>
+          <br>
+            <textarea type="text" class="post-title" placeholder="Blog title..." rows="1"></textarea>
+          <br>
+            <textarea type="text" class="post-content" placeholder="Start writing your post here" rows="8"></textarea>
         </div>
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" class="btn btn-primary">Post Comment</button>
+        <div class="d-grid gap-1 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary">Post Blog</button>
         </div>
       </form>
-  {{/if}}
 
 </section>
 
-{{#if logged_in}}
-<script src="/public/js/comment.js"></script>
-{{/if}}
+<script src="/js/post.js"></script>

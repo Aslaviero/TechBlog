@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
+    console.log(posts)
     res.render('homepage', { 
       posts, 
       logged_in: req.session.logged_in 
@@ -43,7 +44,7 @@ router.get('/post/:id', async (req, res) => {
     const post = postData.get({ plain: true });
 
     res.render('post', {
-      ...post,
+      post,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -55,19 +56,55 @@ router.get('/post/:id', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    const postData = await post.findAll({
+    const postData = await Post.findAll({
       where: {
-        user_id: req.user_id
+        user_id: req.session.user_id,
+        
       },
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
     })
 
-    const post = postData.map((post) => post.get({ plain: true }));
+    const posts = postData.map((post) => post.get({ plain: true }));
     
     res.render('dashboard', {
       posts,
       logged_in: req.session.logged_in
     });
   } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+//Get route to create post page
+router.get('/dashboard/create', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+   
+    res.render('post', {
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+//Get route to edit post page
+router.get('/dashboard/editpost', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+   
+    res.render('editpost', {
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });

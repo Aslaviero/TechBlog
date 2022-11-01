@@ -1,5 +1,20 @@
-<h2> Edit Posts</h2>
+<section>
+<h2> Edit Post</h2>
 
+<form class="edit-post">
+ <div class="form-group d-grid gap-2 col-6 mx-auto">
+          <label class ="d-grid gap-1 col-6 mx-auto">Title</label>
+          <br>
+            <textarea type="text" class="post-title" name="post-title" rows="1" value="{{post.title}}" post-id='{{post.id}}'></textarea>
+          <br>
+            <textarea type="text" class="post-content" placeholder="Start writing your post here" rows="8" value="{{post.content}}"></textarea>
+        </div>
+        <div class="d-grid gap-1 col-6 mx-auto">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <button type="click" class="btn btn-danger mt-2">Delete Post</button>
+        </div>
+</form>
+</section>
 
-<script src="/public/js/editPost.js"></script>
-<script src="/public/js/deletePost.js"></script>
+<script src="/js/editPost.js"></script>
+<script src="/js/deletePost.js"></script>

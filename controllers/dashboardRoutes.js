@@ -8,7 +8,7 @@ router.get('/dashboard/edit/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findbyPk(
       req.params.id, {
-        attributes: ['id', 'title', 'post_body'],
+        attributes: ['id', 'title', 'content'],
       });
        
     const post = postData.get({ plain: true });
