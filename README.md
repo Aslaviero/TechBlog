@@ -73,7 +73,11 @@ This is a Techblog built with nodejs and expressjs for restful api's, handlebars
  * boot-strap
 
 ## screenshot 
-
+<img width"1450" src="https://raw.githubusercontent.com/Aslaviero/TechBlog/main/images/Screen%20Shot%202022-11-01%20at%2011.55.09%20AM.png">
+<img width"1450" src="https://raw.githubusercontent.com/Aslaviero/TechBlog/main/images/Screen%20Shot%202022-11-01%20at%2011.55.19%20AM.png">
+<img width"1450" src="https://raw.githubusercontent.com/Aslaviero/TechBlog/main/images/Screen%20Shot%202022-11-01%20at%2011.55.29%20AM.png">
+<img width"1450" src="https://raw.githubusercontent.com/Aslaviero/TechBlog/main/images/Screen%20Shot%202022-11-01%20at%2011.55.43%20AM.png">
+<img width"1450" src="https://raw.githubusercontent.com/Aslaviero/TechBlog/main/images/Screen%20Shot%202022-11-01%20at%2011.55.53%20AM.png">
 ## Link to deployed heroku application:
 
 ## Future development ideas
