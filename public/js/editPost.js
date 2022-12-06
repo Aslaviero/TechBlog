@@ -9,7 +9,7 @@ const editFormHandler = async (event) => {
 
         const response = await fetch('/dashboard/editpost/' + id, {
             method: 'PUT',
-            body: JSON.stringify({ title: title, content: post_text, post_id: id, }),
+            body: JSON.stringify({ title: title, content: post_text, post_id: id}),
             headers: { 'Content-type': 'application/json' },
         });
 

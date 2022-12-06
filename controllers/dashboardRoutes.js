@@ -2,7 +2,21 @@ const router = require('express').Router();
 const { Post, Comment, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Create a new post
+//Get route to go to create new post page
+router.get('/create/', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the id
+   
+    res.render('post', {
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+// Post route to create new blog post
 router.post('/create', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
@@ -16,25 +30,31 @@ router.post('/create', withAuth, async (req, res) => {
   }
 });
 
-// Edit post
-router.put('/editpost/:id', withAuth, async (req, res) => {
+//Get route to go to edit
+router.get('/editpost/:id', withAuth, async (req, res) => {
   try {
-    const postData = await Post.findbyPk(
-      req.params.id, {
-        include: [
-          {
-            model: Post,
-            attributes: ['id', 'title', 'content', 'user_id']
-          }
-        ]
-      });
-       
-    const post = postData.get({ plain: true });
-    
-    res.render('dashboard', {
-        post,
-        logged_in: req.session.logged_in
+    // Find the logged in user based on the id
+   
+    res.render('editpost', {
+      logged_in: req.session.logged_in
     });
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err);
+  }
+});
+
+// Put route to edit blog post
+router.put('/editpost/{{id}}', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findOne({
+      ...req.body,
+        user_id: req.session.user_id,
+      });
+
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    res.status(200).json(posts)
   } catch (err) {
     res.status(500).json(err);
   }

@@ -20,7 +20,11 @@ router.post('/', async (req, res) => {
 //logging user in
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ 
+      where: { 
+        username: req.body.username 
+        } 
+      });
 
     if (!userData) {
       res
@@ -29,7 +33,10 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = userData.checkPassword({ where: {
+      password: req.body.password
+    }
+    });
 
     if (!validPassword) {
       res
@@ -54,10 +61,10 @@ router.post('/login', async (req, res) => {
 router.post('/logout',(req,res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
-      res.status(204);
+      res.status(204).end();
     });
   } else {
-    res.status(404).end();
+    res.status(404);
   }
   });
 

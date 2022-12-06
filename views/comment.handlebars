@@ -1,5 +1,14 @@
+<section>
 
-
+<div class="card mx-3">
+<h5  class="card-header text-uppercase">Created by: {{post_id}}</h5>
+  <div class="card-body">
+    <h5 class="card-title text-uppercase text-underline post-title">{{post.title}}</h5>
+    <p class="card-text post-content">{{post.content}}</p>
+    <div class="mx-auto" style="width: 200px;">
+  </div>
+</div>
+</div>
 
 <div class="card mx-3 create-comment">
  <h5  class="card-header text-uppercase new-comment">Your comment</h5>
@@ -9,8 +18,9 @@
     
   </div>
 </div>
-<button class="btn btn-primary mx-auto" type="submit">Post Comment!</button>
+<button class="btn btn-primary mx-auto" href="/comment/:id" type="submit">Post Comment!</button>
 {{!-- </div> --}}
+</section>
 
 
 

@@ -3,61 +3,59 @@ const { Post } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
-
-//Get post from a certain id(user)
+// Get post from a certain id
 router.get('/:id', async (req, res) => {
   try {
-    const postData = await Post.findAll({
-      
+    const postData = await Post.findOne({
+      include: [
+        {
+          model: user,
+          attributes: ['username']
+        }
+      ]
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No post found with this id!' });
+      res.status(404).json({ message: 'No post found for this id!' });
       return;
     }
+   
+   const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.status(200).json(postData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+   console.log(posts)
+   res.render('editpost', { 
+     posts, 
+     logged_in: req.session.logged_in 
+   });
+ } catch (err) {
+   res.status(500).json(err);
+ }
 });
 
-//Update a post
+
+//Edit a post
 router.put('/editpost/:id', withAuth, async (req, res) => {
-  try {
-    const post = await Post.update(
-      ...req.body,
-      {
-        where: {
-          id: req.params.id,
-          title: req.params.title,
-          content: req.params.content,
+    const editPost = await Post.update({
+      include: [
+        {
+          model: Post,
+          attributes: ['id', 'title', 'content', 'user_id']
         },
+      ],
       });
-      res.status(200).json(post);
-  } catch(err) {
+
+  const posts = editPost.map((post) => post.get({ plain: true }));
+
+  console.log(posts)
+  res.render('editpost', { 
+    posts, 
+    logged_in: req.session.logged_in 
+  });
     res.status(500).json(err);
-  };
 });
 
-//delete post
-router.delete('/delete/:id', withAuth, async (req, res) => {
-  try {
-    const postData = await Post.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
-
-    if (!postData) {
-      res.status(404).json({ message: 'There is no post with this id!' });
-      return;
-    }
-
-    res.status(200).json(postData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// // TODO: delete post
+// router.delete('/delete/id', withAuth, async (req, res) => {
+  
+// });
 module.exports = router;
