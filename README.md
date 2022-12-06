@@ -10,8 +10,6 @@
   - [screenshot](#screenshot)
   - [Link to deployed heroku application:](#link-to-deployed-heroku-application)
   - [Future development ideas](#future-development-ideas)
-
-- [Heroku](#link-to-deployed-heroku-application)
 ## Model-View-Controller (MVC) Challenge: Tech Blog
 Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
 
@@ -84,7 +82,7 @@ This is a Techblog built with nodejs and expressjs for restful api's, handlebars
 <img width"1450" src="https://raw.githubusercontent.com/Aslaviero/TechBlog/main/images/Screen%20Shot%202022-11-01%20at%2011.55.53%20AM.png">
 
 ## Link to deployed heroku application:
-
+https://git.heroku.com/protected-taiga-37758.git
 ## Future development ideas
 - post comments
 - edit posts
