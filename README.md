@@ -82,7 +82,7 @@ This is a Techblog built with nodejs and expressjs for restful api's, handlebars
 <img src="https://github.com/Aslaviero/TechBlog/blob/main/images/Screen%20Shot%202022-11-01%20at%2011.55.53%20AM.png">
 
 ## Link to deployed heroku application:
-https://git.heroku.com/protected-taiga-37758.git
+https://aslavierotechblog.herokuapp.com/
 ## Future development ideas
 - post comments
 - edit posts
